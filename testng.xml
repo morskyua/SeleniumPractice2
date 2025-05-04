@@ -1,0 +1,9 @@
+<suite name="Some suite">
+    <test name="Some test">
+        <classes>
+            <class name="org.epam.CreateSaveAndDeleteDraftEmailTest"></class>
+            <class name="org.epam.MarkAsStarredEmailTest"></class>
+            <class name="org.epam.ReplyToAndDeleteEmailTest"></class>
+        </classes>
+    </test>
+</suite>

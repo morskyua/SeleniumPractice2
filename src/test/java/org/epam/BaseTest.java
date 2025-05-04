@@ -1,0 +1,26 @@
+package org.epam;
+
+import org.epam.pages.GmailLoginPage;
+import org.epam.pages.GmailPage;
+import org.epam.util.PropertyReader;
+import org.epam.util.WebDriverSingleton;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeMethod;
+
+public class BaseTest {
+    protected GmailPage gmailPage;
+    protected GmailLoginPage loginPage;
+    protected final PropertyReader propertyReader = PropertyReader.getPropertyReader("src/test/resources/prod.properties");
+
+    @BeforeMethod
+    public void setup() {
+        WebDriver driver = WebDriverSingleton.getDriver();
+        loginPage = PageFactory.initElements(driver, GmailLoginPage.class);
+        gmailPage = PageFactory.initElements(driver, GmailPage.class);
+        String url = propertyReader.getProperty("gmailComUrl");
+        driver.get(url);
+        loginPage.login(propertyReader.getProperty("login"), propertyReader.getProperty("password"));
+    }
+
+}

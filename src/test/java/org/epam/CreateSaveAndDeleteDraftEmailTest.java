@@ -1,0 +1,28 @@
+package org.epam;
+
+import org.epam.util.WebDriverSingleton;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+public class CreateSaveAndDeleteDraftEmailTest extends BaseTest {
+
+    @AfterMethod
+    public void tearDown() {
+        gmailPage.deleteDraft();
+        WebDriverSingleton.tearDown();
+    }
+
+    @Test
+    void testCreateDraftEmailAndCheckSubject() {
+        gmailPage.createDraftMail("demoAdress", "demoDraftSubject", "demoText");
+        gmailPage.openDrafts();
+        Assert.assertEquals(gmailPage.getEmailSubject().getText(), "demoDraftSubject");
+    }
+
+    @Test
+    void testCreateDraftEmailCheckTextAndDelete() {
+        gmailPage.createDraftMail("demoAdress", "demoDraftSubjectAndDelete", "demoText");
+        gmailPage.openDrafts();
+        Assert.assertTrue(gmailPage.getFirstEmail().getText().contains("demoDraftSubjectAndDelete"));
+    }
+}
