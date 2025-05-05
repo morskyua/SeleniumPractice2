@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
+    protected final PropertyReader propertyReader = PropertyReader.getPropertyReader("src/test/resources/prod.properties");
     protected GmailPage gmailPage;
     protected GmailLoginPage loginPage;
-    protected final PropertyReader propertyReader = PropertyReader.getPropertyReader("src/test/resources/prod.properties");
 
     @BeforeMethod
     public void setup() {

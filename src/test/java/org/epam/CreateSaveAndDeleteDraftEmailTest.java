@@ -14,14 +14,14 @@ public class CreateSaveAndDeleteDraftEmailTest extends BaseTest {
 
     @Test
     void testCreateDraftEmailAndCheckSubject() {
-        gmailPage.createDraftMail("demoAdress", "demoDraftSubject", "demoText");
+        gmailPage.createDraftMail("demoAddress", "demoDraftSubject", "demoText");
         gmailPage.openDrafts();
         Assert.assertEquals(gmailPage.getEmailSubject().getText(), "demoDraftSubject");
     }
 
     @Test
     void testCreateDraftEmailCheckTextAndDelete() {
-        gmailPage.createDraftMail("demoAdress", "demoDraftSubjectAndDelete", "demoText");
+        gmailPage.createDraftMail("demoAddress", "demoDraftSubjectAndDelete", "demoText");
         gmailPage.openDrafts();
         Assert.assertTrue(gmailPage.getFirstEmail().getText().contains("demoDraftSubjectAndDelete"));
     }

@@ -4,13 +4,10 @@ import org.epam.util.WebDriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 public class GmailPage extends BasePage {
-    private final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     @FindBy(xpath = "//*[text()='Compose']")
     private WebElement composeButton;
 
@@ -30,7 +27,7 @@ public class GmailPage extends BasePage {
     private WebElement draftsButton;
 
     @FindBy(xpath = "//*[@role='main']//tr[1]/td[5]/div/div/div/span/span")
-    private WebElement EmailSubject;
+    private WebElement emailSubject;
 
     @FindBy(xpath = "//*[@role='main']//tr")
     private List<WebElement> emails;
@@ -154,17 +151,17 @@ public class GmailPage extends BasePage {
     }
 
     public WebElement getEmailSubject() {
-        return EmailSubject;
+        return emailSubject;
     }
 
     public WebElement getDeleteDraftButton() {
         return deleteDraftButton;
     }
 
-    public void createDraftMail(String adress, String subject, String text) {
+    public void createDraftMail(String address, String subject, String text) {
         getComposeButton().click();
         wait.until(driver -> getSubjectInput().isEnabled());
-        getRecipientsInput().sendKeys(adress);
+        getRecipientsInput().sendKeys(address);
         getSubjectInput().sendKeys(subject);
         getTextInput().sendKeys(text);
         getCloseButton().click();

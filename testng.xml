@@ -1,5 +1,5 @@
-<suite name="Some suite">
-    <test name="Some test">
+<suite name="Test suite">
+    <test name="Test">
         <classes>
             <class name="org.epam.CreateSaveAndDeleteDraftEmailTest"></class>
             <class name="org.epam.MarkAsStarredEmailTest"></class>

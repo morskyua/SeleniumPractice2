@@ -15,16 +15,16 @@ public class ReplyToAndDeleteEmailTest extends BaseTest {
 
     @Test
     void testReplyAndSave() {
-        gmailPage.replyToEmail("DemoReplySaveText");
+        gmailPage.replyToEmail("DemoReplyText");
         gmailPage.openSentEmails();
         Assert.assertEquals(gmailPage.getEmailSubject().getText(), "DemoEmail");
     }
 
     @Test
     void testReplyAndVerifyText() {
-        gmailPage.replyToEmail("DemoReplyDeleteText");
+        gmailPage.replyToEmail("DemoReplyAssertText");
         gmailPage.openSentEmails();
         String actual = gmailPage.getFirstReplyText();
-        Assert.assertEquals(actual, "DemoReplyDeleteText");
+        Assert.assertEquals(actual, "DemoReplyAssertText");
     }
 }
