@@ -174,6 +174,7 @@ public class GmailPage extends BasePage {
 
     public void deleteDraft() {
         getFirstEmail().click();
+        wait.until(ExpectedConditions.visibilityOf(getDeleteDraftButton()));
         getDeleteDraftButton().click();
     }
 

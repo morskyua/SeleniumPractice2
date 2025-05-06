@@ -13,7 +13,7 @@ public class WebDriverSingleton {
     private static final WebDriverManager manager;
 
     static {
-        manager = WebDriverManager.chromedriver();
+        manager = WebDriverManager.edgedriver();
         manager.setup();
         threadLocalInstance = ThreadLocal.withInitial(WebDriverSingleton::createWebDriver);
     }
