@@ -20,7 +20,7 @@ public class CreateSaveAndDeleteDraftEmailTest extends BaseTest {
     }
 
     @Test
-    void testCreateDraftEmailCheckTextAndDelete() {
+    void testCreateDraftEmailAndCheckText() {
         gmailPage.createDraftMail("demoAddress", "demoDraftSubjectAndDelete", "demoText");
         gmailPage.openDrafts();
         Assert.assertTrue(gmailPage.getFirstEmail().getText().contains("demoDraftSubjectAndDelete"));
